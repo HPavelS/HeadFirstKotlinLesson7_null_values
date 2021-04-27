@@ -13,14 +13,24 @@ class MyDucks(var myDucks: Array<Duck?>) {
         }
     }
     fun totalDuckHeight(): Int {
-        var h:      =
+        var h:Int = 0
             for (duck in myDucks) {
-                h    duck   height     0
+                h +=  duck?.height ?: 0
             }
         return h
     }
 }
 
 fun main() {
+    val d1 = Duck(12)
+    val d2 = Duck(5)
+    val d3 = Duck(null)
+    val d = arrayOf<Duck?>(d1, d2, d3)
+    println(MyDucks(d).totalDuckHeight())
+    println("--------------------------")
+    // or
+    println(MyDucks(arrayOf(d1, d2, d3)).totalDuckHeight())
+
+
 
 }
