@@ -7,6 +7,7 @@ class Duck(val height:Int? = null){
 class MyDucks(var myDucks: Array<Duck?>) {
     fun quack() {
         for (duck in myDucks) {
+            println("1     $duck")
             duck?.let{
                 it.quack()
             }
@@ -24,13 +25,12 @@ class MyDucks(var myDucks: Array<Duck?>) {
 fun main() {
     val d1 = Duck(12)
     val d2 = Duck(5)
-    val d3 = Duck(null)
+    val d3 = null
     val d = arrayOf<Duck?>(d1, d2, d3)
     println(MyDucks(d).totalDuckHeight())
     println("--------------------------")
     // or
     println(MyDucks(arrayOf(d1, d2, d3)).totalDuckHeight())
-
-
-
+    println("--------------------------")
+    println(MyDucks(arrayOf(d1, d2, d3)).quack())
 }
